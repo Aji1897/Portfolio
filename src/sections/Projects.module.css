@@ -1,0 +1,71 @@
+.projectsSection {
+  padding: 100px 0;
+  position: relative;
+}
+
+.heading {
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.filterWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.filterBtn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+[data-theme="light"] .filterBtn {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.filterBtn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.activeFilter {
+  background: var(--primary-color) !important;
+  color: #0b0f19 !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Container animation */
+.gridAnimate {
+  transition: all 0.5s ease-in-out;
+}

@@ -1,0 +1,188 @@
+.skillsSection {
+  padding: 100px 0;
+  position: relative;
+}
+
+.heading {
+  margin-bottom: 50px;
+}
+
+.eyebrow {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.skillCard {
+  background: var(--surface-color);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.skillCard:hover {
+  border-color: var(--card-hover-border, var(--border-focus));
+  box-shadow: 0 12px 32px var(--card-glow-color, var(--primary-glow)), var(--card-shadow);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.iconContainer {
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  stroke-width: 2.2px;
+}
+
+/* Category Accent Styles & Hover glows */
+.cardFrontend {
+  --card-glow-color: rgba(0, 242, 254, 0.12);
+  --card-hover-border: rgba(0, 242, 254, 0.4);
+}
+.iconFrontend {
+  background: color-mix(in srgb, var(--primary-color) 12%, transparent);
+  color: var(--primary-color);
+}
+
+.cardReact {
+  --card-glow-color: rgba(79, 172, 254, 0.12);
+  --card-hover-border: rgba(79, 172, 254, 0.4);
+}
+.iconReact {
+  background: color-mix(in srgb, var(--primary-hover) 12%, transparent);
+  color: var(--primary-hover);
+}
+
+.cardStyling {
+  --card-glow-color: rgba(181, 23, 158, 0.12);
+  --card-hover-border: rgba(181, 23, 158, 0.4);
+}
+.iconStyling {
+  background: color-mix(in srgb, var(--secondary-color) 12%, transparent);
+  color: var(--secondary-color);
+}
+
+.cardTools {
+  --card-glow-color: rgba(255, 8, 68, 0.12);
+  --card-hover-border: rgba(255, 8, 68, 0.4);
+}
+.iconTools {
+  background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+  color: var(--accent-color);
+}
+
+.cardBackend {
+  --card-glow-color: rgba(181, 23, 158, 0.12);
+  --card-hover-border: rgba(181, 23, 158, 0.4);
+}
+.iconBackend {
+  background: color-mix(in srgb, var(--secondary-color) 12%, transparent);
+  color: var(--secondary-color);
+}
+
+.cardPractices {
+  --card-glow-color: rgba(255, 8, 68, 0.12);
+  --card-hover-border: rgba(255, 8, 68, 0.4);
+}
+.iconPractices {
+  background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+  color: var(--accent-color);
+}
+
+/* Light Theme overrides for card hover glow and borders */
+[data-theme="light"] .cardFrontend {
+  --card-glow-color: rgba(79, 70, 229, 0.1);
+  --card-hover-border: rgba(79, 70, 229, 0.35);
+}
+[data-theme="light"] .cardReact {
+  --card-glow-color: rgba(79, 70, 229, 0.1);
+  --card-hover-border: rgba(79, 70, 229, 0.35);
+}
+[data-theme="light"] .cardStyling {
+  --card-glow-color: rgba(8, 145, 178, 0.1);
+  --card-hover-border: rgba(8, 145, 178, 0.35);
+}
+[data-theme="light"] .cardTools {
+  --card-glow-color: rgba(219, 39, 119, 0.1);
+  --card-hover-border: rgba(219, 39, 119, 0.35);
+}
+[data-theme="light"] .cardBackend {
+  --card-glow-color: rgba(8, 145, 178, 0.1);
+  --card-hover-border: rgba(8, 145, 178, 0.35);
+}
+[data-theme="light"] .cardPractices {
+  --card-glow-color: rgba(219, 39, 119, 0.1);
+  --card-hover-border: rgba(219, 39, 119, 0.35);
+}
+
+.categoryTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: var(--text-strong);
+}
+
+.skillsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto; /* Push content or stretch wrapper cleanly */
+}
+
+.skillBadge {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: default;
+}
+
+[data-theme="light"] .skillBadge {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.skillBadge:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--card-hover-border, var(--border-focus));
+  color: var(--text-strong);
+}
+
+[data-theme="light"] .skillBadge:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+

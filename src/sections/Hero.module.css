@@ -1,0 +1,380 @@
+.hero {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  text-align: justify;
+}
+
+/* Background glowing blur elements */
+.glowingBlob1 {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  opacity: 0.15;
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+.glowingBlob2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
+  opacity: 0.12;
+  filter: blur(55px);
+  z-index: 0;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite alternate-reverse;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.eyebrow {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--text-color);
+  max-width: 580px;
+  margin-bottom: 35px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: #0b0f19 !important;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 4px 15px var(--primary-glow);
+  transition: all 0.3s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-strong) !important;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 30px;
+  backdrop-filter: var(--glass-blur);
+  transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* Right Illustration styling */
+.illustrationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 450px;
+}
+
+.mockupWindow {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.mockupWindow:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.windowHeader {
+  height: 36px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-theme="light"] .windowHeader {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotRed {
+  background: #ff5f56;
+}
+
+.dotYellow {
+  background: #ffbd2e;
+}
+
+.dotGreen {
+  background: #27c93f;
+}
+
+.windowTitle {
+  margin-left: 10px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.windowBody {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+[data-theme="light"] .windowBody {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.webDevImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mockupWindow:hover .webDevImage {
+  transform: scale(1.03);
+}
+
+/* Interactive Floating badges */
+.floatingBadge {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+}
+
+[data-theme="light"] .floatingBadge {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.badgeReact {
+  top: 15%;
+  left: 5%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.badgeCode {
+  bottom: 20%;
+  right: 5%;
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.badgeDesign {
+  bottom: 10%;
+  left: 10%;
+  animation: float 4.5s ease-in-out infinite 0.5s;
+}
+
+/* Outer Orbit paths */
+.orbitRing {
+  position: absolute;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+[data-theme="light"] .orbitRing {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.ring1 {
+  width: 380px;
+  height: 380px;
+}
+
+.ring2 {
+  width: 440px;
+  height: 440px;
+}
+
+@media (max-width: 991px) {
+  .hero {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .eyebrow {
+    justify-content: center;
+  }
+  
+  .subtitle {
+    margin-inline: auto;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .illustrationContainer {
+    margin-top: 50px;
+    height: 400px;
+    width: 100%;
+  }
+  
+  .ring1 {
+    width: 340px;
+    height: 340px;
+  }
+  
+  .ring2 {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .illustrationContainer {
+    height: 320px;
+    margin-top: 30px;
+  }
+  
+  .mockupWindow {
+    max-width: 290px;
+    border-radius: 12px;
+  }
+  
+  .windowHeader {
+    height: 30px;
+    padding: 0 10px;
+  }
+  
+  .windowTitle {
+    font-size: 0.65rem;
+    margin-left: 6px;
+  }
+  
+  .windowBody {
+    padding: 8px;
+  }
+  
+  .ring1 {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .ring2 {
+    width: 310px;
+    height: 310px;
+  }
+  
+  .floatingBadge {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    border-radius: 8px;
+  }
+  
+  .badgeReact {
+    top: 10%;
+    left: 2%;
+  }
+  
+  .badgeCode {
+    bottom: 15%;
+    right: 2%;
+  }
+  
+  .badgeDesign {
+    bottom: 5%;
+    left: 5%;
+  }
+}

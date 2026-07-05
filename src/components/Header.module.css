@@ -1,0 +1,122 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--surface-color);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  padding: 12px 0;
+}
+
+.brand {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.55rem;
+  color: var(--text-strong) !important;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logoBracket {
+  font-weight: 300;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.logoText {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 50%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 6px var(--primary-glow));
+}
+
+.brand:hover {
+  transform: scale(1.05);
+}
+
+.brand:hover .logoText {
+  filter: drop-shadow(0 0 12px var(--primary-color)) brightness(1.15);
+}
+
+.brand:hover .logoBracket {
+  filter: drop-shadow(0 0 8px var(--primary-color)) brightness(1.15);
+  opacity: 1;
+}
+
+.navLink {
+  color: var(--text-color) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out !important;
+  margin: 0 4px;
+}
+
+.navLink:hover {
+  color: var(--primary-color) !important;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .navLink:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.themeToggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-strong);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+}
+
+[data-theme="light"] .themeToggle {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.themeToggle:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: var(--primary-glow);
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* Fix mobile toggle */
+.toggleButton {
+  border: 1px solid var(--border-color) !important;
+  padding: 6px 10px !important;
+}
+
+.toggleIcon {
+  color: var(--text-strong);
+}
+
+@media (max-width: 991px) {
+  .collapseContainer {
+    padding-top: 16px;
+  }
+  
+  .themeToggle {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}
