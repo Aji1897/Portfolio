@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
 import { profile, navLinks } from '../data/portfolio.js'
+import { Github, Linkedin } from './SocialIcons.jsx'
 import styles from './Header.module.css'
 
 function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const [expanded, setExpanded] = useState(false)
 
   // Initialize to dark theme constantly
   useEffect(() => {
@@ -30,6 +32,8 @@ function Header() {
   return (
     <Navbar
       expand="lg"
+      expanded={expanded}
+      onToggle={setExpanded}
       className={`${styles.header} ${scrolled ? 'shadow-sm' : ''}`}
       aria-label="Main navigation"
     >
@@ -43,6 +47,7 @@ function Header() {
             if (heroSection) {
               heroSection.scrollIntoView({ behavior: 'smooth' })
             }
+            setExpanded(false)
           }}
         >
           <span className={styles.logoBracket}>&lt;</span>
@@ -57,19 +62,44 @@ function Header() {
           <span className={`navbar-toggler-icon ${styles.toggleIcon}`}></span>
         </Navbar.Toggle>
  
-        <Navbar.Collapse id="basic-navbar-nav" className={styles.collapseContainer}>
-          <Nav className="ms-auto align-items-center">
-            {navLinks.map((link) => (
-              <Nav.Link 
-                key={link.href} 
-                href={link.href}
-                className={styles.navLink}
-              >
-                {link.label}
-              </Nav.Link>
-            ))}
-          </Nav>
-        </Navbar.Collapse>
+        <Navbar.Offcanvas 
+          id="basic-navbar-nav" 
+          aria-labelledby="basic-navbar-nav-label"
+          placement="start"
+          className={styles.offcanvasContainer}
+        >
+          <Offcanvas.Header closeButton className={styles.offcanvasHeader}>
+            <Offcanvas.Title id="basic-navbar-nav-label" className={styles.offcanvasTitle}>
+              <span className={styles.logoBracket}>&lt;</span>
+              <span className={styles.logoText}>AJITH</span>
+              <span className={styles.logoBracket}>/&gt;</span>
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body className={styles.offcanvasBody}>
+            <Nav className="ms-auto align-items-center">
+              {navLinks.map((link) => (
+                <Nav.Link 
+                  key={link.href} 
+                  href={link.href}
+                  className={styles.navLink}
+                  onClick={() => setExpanded(false)}
+                >
+                  {link.label}
+                </Nav.Link>
+              ))}
+            </Nav>
+            <div className={`mt-auto pt-4 ${styles.offcanvasFooter} d-lg-none`}>
+              <div className="d-flex gap-3 justify-content-center">
+                <a href="https://github.com/Aji1897" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
+                  <Github size={20} />
+                </a>
+                <a href="https://www.linkedin.com/in/ajith-kumaran-v-a5a745400" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
+                  <Linkedin size={20} />
+                </a>
+              </div>
+            </div>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
       </Container>
     </Navbar>
   )
