@@ -1,35 +1,35 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { motion } from 'framer-motion'
-import { Code2, Layers, Palette, Terminal, Server, CheckCircle2 } from 'lucide-react'
+import { Code2, Layers, Terminal, Server, CheckCircle2, ShieldCheck, Database, Wrench, Globe } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
 import { skillCategories } from '../data/portfolio.js'
 import styles from './Skills.module.css'
 
 const CATEGORY_STYLES = {
-  'Frontend Core': {
+  'Frontend Technologies': {
     icon: Code2,
     class: styles.iconFrontend,
     cardClass: styles.cardFrontend,
   },
-  'React Ecosystem': {
-    icon: Layers,
+  'Backend & Database': {
+    icon: Database,
+    class: styles.iconBackend,
+    cardClass: styles.cardBackend,
+  },
+  'Auth & Security': {
+    icon: ShieldCheck,
     class: styles.iconReact,
     cardClass: styles.cardReact,
-  },
-  'Styling & UI': {
-    icon: Palette,
-    class: styles.iconStyling,
-    cardClass: styles.cardStyling,
   },
   'Tools & Workflow': {
     icon: Terminal,
     class: styles.iconTools,
     cardClass: styles.cardTools,
   },
-  'Backend Familiarity': {
-    icon: Server,
-    class: styles.iconBackend,
-    cardClass: styles.cardBackend,
+  'Additional Technologies': {
+    icon: Globe,
+    class: styles.iconStyling,
+    cardClass: styles.cardStyling,
   },
   'Development Practices': {
     icon: CheckCircle2,
@@ -43,8 +43,8 @@ function Skills() {
     <section id="skills" className={styles.skillsSection}>
       <Container>
         <Reveal className={styles.heading}>
-          <span className={styles.eyebrow}>EXPERTISE</span>
-          <h2 className={styles.title}>Technical Expertise</h2>
+          <span className={styles.eyebrow}>TECHNICAL STACK</span>
+          <h2 className={styles.title}>Core Skills & Competencies</h2>
         </Reveal>
 
         <Row className="g-4">
@@ -62,8 +62,8 @@ function Skills() {
                   className={`${styles.skillCard} ${config.cardClass}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: catIndex * 0.1, ease: "easeOut" }}
+                  viewport={{ once: true, margin: '-100px' }}
+                  transition={{ duration: 0.5, delay: catIndex * 0.1, ease: 'easeOut' }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 >
                   <div className={styles.cardHeader}>
@@ -82,7 +82,7 @@ function Skills() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ 
-                          type: "spring", 
+                          type: 'spring', 
                           stiffness: 100, 
                           damping: 10,
                           delay: catIndex * 0.1 + index * 0.04 
@@ -104,4 +104,3 @@ function Skills() {
 }
 
 export default Skills
-

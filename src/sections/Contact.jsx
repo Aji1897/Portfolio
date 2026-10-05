@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import { Mail, MapPin, Send, CheckCircle2 } from 'lucide-react'
+import { Mail, MapPin, Send, CheckCircle2, Phone, Clock, Sparkles } from 'lucide-react'
 import { Github, Linkedin } from '../components/SocialIcons.jsx'
 import confetti from 'canvas-confetti'
 import Reveal from '../components/Reveal.jsx'
@@ -84,7 +84,7 @@ function Contact() {
           throw new Error('Server returned an error status')
         }
       })
-      .catch((error) => {
+      .catch(() => {
         setIsSubmitting(false)
         setErrors((prev) => ({ 
           ...prev, 
@@ -97,7 +97,7 @@ function Contact() {
     <section id="contact" className={styles.contactSection}>
       <Container>
         <Reveal className={styles.heading}>
-          <span className={styles.eyebrow}>Get in Touch</span>
+          <span className={styles.eyebrow}>GET IN TOUCH</span>
           <h2 className={styles.title}>Let's Build Something Great Together</h2>
         </Reveal>
 
@@ -105,9 +105,15 @@ function Contact() {
           {/* Left Column: Info list and socials */}
           <Col lg={5} md={12}>
             <div className={styles.infoCard}>
-              <h3 className={styles.infoTitle}>Connect with Me</h3>
+              <div className="d-flex align-items-center gap-2 mb-2">
+                <span className="badge bg-success bg-opacity-20 text-success border border-success border-opacity-30 px-3 py-2 rounded-pill font-medium">
+                  🟢 Immediate Joiner
+                </span>
+              </div>
+
+              <h3 className={styles.infoTitle}>Contact & Connect</h3>
               <p className={styles.infoText}>
-                Feel free to reach out for collaboration, freelance inquiries, or just to say hello. I'll get back to you as soon as possible.
+                I am actively seeking Full Stack, MERN Stack, and React Developer opportunities. Feel free to connect for job openings, project collaborations, or technical discussions.
               </p>
 
               <ul className={styles.contactList} aria-label="Contact options">
@@ -125,6 +131,18 @@ function Contact() {
 
                 <li className={styles.contactItem}>
                   <div className={styles.iconWrapper}>
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <div className={styles.itemLabel}>Phone</div>
+                    <div className={styles.itemValue}>
+                      <a href={`tel:${profile.phoneRaw}`}>{profile.phone}</a>
+                    </div>
+                  </div>
+                </li>
+
+                <li className={styles.contactItem}>
+                  <div className={styles.iconWrapper}>
                     <MapPin size={20} />
                   </div>
                   <div>
@@ -136,11 +154,17 @@ function Contact() {
 
               <h4 className="h6 fw-bold text-strong mb-3 text-uppercase tracking-wider">Social Channels</h4>
               <div className={styles.socials}>
-                <a href={githubUrl} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="GitHub">
+                <a href={githubUrl} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="GitHub Profile">
                   <Github size={20} />
                 </a>
-                <a href={linkedinUrl} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
+                <a href={linkedinUrl} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="LinkedIn Profile">
                   <Linkedin size={20} />
+                </a>
+                <a href={`mailto:${profile.email}`} className={styles.socialIcon} aria-label="Email Ajith">
+                  <Mail size={20} />
+                </a>
+                <a href={`tel:${profile.phoneRaw}`} className={styles.socialIcon} aria-label="Call Ajith">
+                  <Phone size={20} />
                 </a>
               </div>
             </div>

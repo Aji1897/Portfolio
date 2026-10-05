@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
+import { Mail, Phone } from 'lucide-react'
 import { profile, navLinks } from '../data/portfolio.js'
 import { Github, Linkedin } from './SocialIcons.jsx'
 import styles from './Header.module.css'
@@ -95,6 +96,12 @@ function Header() {
                 </a>
                 <a href="https://www.linkedin.com/in/ajith-kumaran-v-a5a745400" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
                   <Linkedin size={20} />
+                </a>
+                <a href={`mailto:${profile.email}`} className={styles.socialIcon} aria-label="Email">
+                  <Mail size={20} />
+                </a>
+                <a href={`tel:${profile.phoneRaw}`} className={styles.socialIcon} aria-label="Phone">
+                  <Phone size={20} />
                 </a>
               </div>
             </div>

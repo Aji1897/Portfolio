@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from '../components/Reveal.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
@@ -11,8 +11,9 @@ function Projects() {
 
   const filterCategories = [
     { label: 'All Projects', value: 'all' },
-    { label: 'Web Apps', value: 'apps' },
-    { label: 'Static Websites', value: 'design' },
+    { label: 'MERN & Full Stack', value: 'mern' },
+    { label: 'Web Portals & CMS', value: 'web' },
+    { label: 'Frontend & UI', value: 'frontend' },
   ]
 
   const filteredProjects = filter === 'all'
@@ -23,8 +24,11 @@ function Projects() {
     <section id="projects" className={styles.projectsSection}>
       <Container>
         <Reveal className={styles.heading}>
-          <span className={styles.eyebrow}>Portfolio</span>
-          <h2 className={styles.title}>Featured Projects</h2>
+          <span className={styles.eyebrow}>PROJECT SHOWCASE</span>
+          <h2 className={styles.title}>Featured Projects & Applications</h2>
+          <p className={styles.subtitle}>
+            Explore full-stack MERN web apps, responsive dashboards, e-commerce platforms, and custom business solutions.
+          </p>
         </Reveal>
 
         {/* Filter buttons */}

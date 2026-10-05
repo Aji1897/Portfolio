@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { ArrowUp, Mail } from 'lucide-react'
+import { ArrowUp, Mail, Phone } from 'lucide-react'
 import { Github, Linkedin } from './SocialIcons.jsx'
 import { profile, socials } from '../data/portfolio.js'
 import styles from './Footer.module.css'
@@ -36,7 +36,7 @@ function Footer() {
     <footer className={styles.footer}>
       <Container className={styles.container}>
         <p className={styles.text}>
-          &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
+          &copy; {new Date().getFullYear()} {profile.name} • {profile.role}. All rights reserved.
         </p>
 
         <ul className={styles.links} aria-label="Social connections">
@@ -69,6 +69,15 @@ function Footer() {
               aria-label="Email Ajith"
             >
               <Mail size={18} />
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`tel:${profile.phoneRaw}`} 
+              className={styles.link}
+              aria-label="Call Ajith"
+            >
+              <Phone size={18} />
             </a>
           </li>
         </ul>
